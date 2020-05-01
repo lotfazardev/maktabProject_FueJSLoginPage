@@ -85,7 +85,6 @@ body{
     flex-direction: row;
 }
 /* ------------------------------- all class div ----------------------------------*/
-* layout config for form */
 .form{
     height: 100%;
     width: 100%;
@@ -172,17 +171,205 @@ body{
 }
 `)
 
-// const rootLayout = document.getElementById("root")
-// rootLayout.appendChild(fueJs.createElement("div", {
-//     id: "rightSide",
-//     style: {
-//         width: '45vw',
-//         height: '100vh',
-//         backgroundColor: 'white',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontFamily: 'shabnam',
-//     }
-// }))
+const rootLayout = document.getElementById("root")
+rootLayout.appendChild(fueJs.createElement("div", {
+    id: "rightSide",
+    style: {
+        width: '45vw',
+        height: '100vh',
+        backgroundColor: 'white',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontFamily: 'shabnam',
+    }
+},
+    fueJs.createElement("div", {
+        id: "login-form-layout",
+        style: {
+            width: '63%',
+            height: '80%',
+            display: 'flex',
+            flexDirection: 'column',
+        }
+    }, [fueJs.createElement("div", {
+        id: "login-header-text",
+        style: {
+            color: '#0093EF',
+            fontWeight: 'bold',
+            fontSize: '1rem',
+        }
+    }, fueJs.createElement("span", {}, "ورود")
+    )
+        , fueJs.createElement("div", {
+            id: "form-layout",
+            style: {
+                width: '100%',
+                height: '100%',
+                marginTop: '20%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+            }
+        }, [
+            fueJs.createElement("div", {
+                id: "form-head",
+                style: {
+                    width: '100%',
+                    height: '13%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                }
+            }, [fueJs.createElement("span", {
+                id: "entry",
+                style: {
+                    fontSize: '1.5vw',
+                    color: '#424242',
+                }
+            }, "ورود به حساب کاربری")
+                , fueJs.createElement("span", {
+                    id: "entry-description",
+                    style: {
+                        fontSize: '0.9vw',
+                        color: '#9F9F9F',
+                    }
+                }, "جهت ورود به برنامه نام کاربری و رمز عبور خود وارد نمایید")]),
+            fueJs.createElement("div", {
+                class: "form",
+                style: {
+                    width: '100 %',
+                    height: '75 %'
+                }
+            }, [
+                fueJs.createElement("form", {
+                    action: "/index.html",
+                    method: "post",
+                    style: {
+                        height: '100%',
+                        width: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                    }
+                }, [
+                    fueJs.createElement("div", {
+                        id: "firstinput",
+                        style: {
+                            marginTop: '0 !important'
+                        },
+                        class: "inputs-layout"
+                    },
+                        fueJs.createElement("input", {
+                            type: "email",
+                            name: "email",
+                            placeholder: "نام کاربری",
+                            class: "text-inputs",
+                            id: "email",
+                            style: {
+                                backgroundImage: 'url("./Assets/SVG/userGray.svg")',
+                            },
+                            maxlength: "40"
+                        })),
+                    fueJs.createElement("div", {
+                        class: "inputs-layout"
+                    },
+                        fueJs.createElement("input", {
+                            type: "password",
+                            name: "password",
+                            placeholder: "رمز عبور",
+                            class: "text-inputs",
+                            id: "password",
+                            style: {
+                                backgroundImage: 'url("./Assets/SVG/passwordGray.svg")',
+                            },
+                            maxlength: "40"
+                        })),
+                    fueJs.createElement("div", {
+                        class: "inputs-layout recapcha-layout"
+                    }, [
+                        fueJs.createElement("input", {
+                            type: "text",
+                            name: "chapcha",
+                            id: "chapcha",
+                            placeholder: "کد امنیتی",
+                            class: "text-inputs",
+                            maxlength: "5",
+                            style: {
+                                backgroundImage: 'url("./Assets/SVG/keyboardGray.svg")',
+                                width: '60%',
+                            }
+                        }),
+                        fueJs.createElement("div", {
+                            id: "capcha-img",
+                            class: "recapcha-layout",
+                            style: {
+                                width: '20%',
+                            }
+                        }, [
+                            fueJs.createElement("img", {
+                                id: "capcha-png",
+                                src: "./Assets/PNG/capcha.jpg",
+                                alt: "chapcha",
+                                style: {
+                                    width: '5vw',
+                                    height: '1.5vw',
+                                    marginLeft: "10px",
+                                }
+                            })
+                            , fueJs.createElement("img", {
+                                id: "refresh-capcha",
+                                src: "./Assets/SVG/recycle.svg",
+                                alt: "refresh",
+                                style: {
+                                    width: '1vw',
+                                    height: '1vw',
+                                    marginLeft: "10px"
+                                }
+                            })
+                        ])
+                    ]
+                    ),
+                    fueJs.createElement("div", {
+                        class: "inputs-layout"
+                    },
+                        fueJs.createElement("input", {
+                            id: "submit",
+                            type: "submit",
+                            value: "ورود",
+                            style: {
+                                width: '100%',
+                                paddingTop: '3%',
+                                paddingBottom: '3%',
+                                backgroundColor: '#0093ED',
+                                fontFamily: 'shabnam',
+                                fontSize: '1.1rem',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: "5px",
+                                boxShadow: '-3px 6px 9px 0px rgba(0,0,0,0.31)',
+                                marginTop: '3%',
+                            }
+                        })),
+                    fueJs.createElement("div", {
+                        class: "inputs-layout checkbox-layout"
+                    }, [
+                        fueJs.createElement("input", {
+                            type: "checkbox",
+                            name: "rememberme",
+                            id: "rememberme-checkbox"
+                        }),
+                        fueJs.createElement("label", {
+                            style: {
+                                fontSize: '0.8rem',
+                                color: '#9F9F9F',
+                            },
+                            id: "checkbox-label",
+                            for: "rememberme-checkbox"
+                        },"مرا به خاطر بسپار")
+                    ])
+                ])
+            ])
+        ])]
+    )
+))
 
