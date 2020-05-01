@@ -169,6 +169,19 @@ body{
 #email:focus{
     background-image: url("./Assets/SVG/userBlue.svg");
 }
+/* anim delay */
+#wave2{
+    -webkit-animation-delay: 1.5s;
+}
+#wave3{
+    -webkit-animation-delay: 2s;
+}
+#wave4{
+    -webkit-animation-delay: 2.5s;
+}
+#wave5{
+    -webkit-animation-delay: 3s;
+}
 `)
 
 const rootLayout = document.getElementById("root")
@@ -365,11 +378,63 @@ rootLayout.appendChild(fueJs.createElement("div", {
                             },
                             id: "checkbox-label",
                             for: "rememberme-checkbox"
-                        },"مرا به خاطر بسپار")
+                        }, "مرا به خاطر بسپار")
                     ])
                 ])
             ])
         ])]
     )
 ))
+rootLayout.appendChild(fueJs.createElement("div", {
+    id: "leftSide",
+    style: {
+        width: '55vw',
+        height: '100vh',
+        background: 'linear-gradient(45deg, rgba(30,181,236,1) 0%, rgba(153,241,219,1) 100%)',
+        display: 'flex',
+        position: 'relative',
+        flexDirection: 'column',
+        alignContent: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+    }
+},
+    [
+        fueJs.createElement("div", { class: "wave-div" }),
+        fueJs.createElement("div", { class: "wave-div", id: "wave2" }),
+        fueJs.createElement("div", { class: "wave-div", id: "wave3" }),
+        fueJs.createElement("div", { class: "wave-div", id: "wave4" }),
+        fueJs.createElement("div", { class: "wave-div", id: "wave5" }),
+        fueJs.createElement("div", { class: "logo" }
+            , fueJs.createElement("img", {
+                id: "logo-img",
+                src: "./Assets/PNG/Logo.png",
+                alt: "logo",
+                style: {
+                    width: '10vw',
+                    height: '20vh',
+                }
+            })),
+        fueJs.createElement("div", {
+            id: "program-name-layout",
+            style: {
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                padding: '5vh',
+                justifyContent: 'flex-end',
+            }
+        }, fueJs.createElement("span", {
+            id: "program-name",
+            style: {
+                whiteSpace: 'nowrap',
+                fontFamily: 'Comfortaa_bold',
+                color: 'white',
+            }
+        }, "Multi Anti-Virus & Cybersecurity")),
+        fueJs.createElement("div", {class:"beam"})
+    ]))
 
